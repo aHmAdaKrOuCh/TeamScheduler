@@ -63,18 +63,6 @@ public class TeamScheduler {
             }
         } while (choice != -1);
         Stats(teams);
-//        if (t1score > t2score){
-//            System.out.println("Team 1 wins");
-//        }else{
-//            if (t1score < t2score)
-//                System.out.println("Team 2 wins");
-//        }
-//         if (t3score > t4score){
-//            System.out.println("Team 1 wins");
-//        }else{
-//            if (t3score < t4score)
-//                System.out.println("Team 2 wins");
-//    }
     }
 
     public static void Stats(Team[] teamList) {
@@ -112,10 +100,45 @@ public class TeamScheduler {
     
     
     public static void scheduleGames(int teams){
+        System.out.println("Welcome to the Champions league");
+        choices();
+        System.out.println("Give me the first team");
+        String input = in.nextLine();
+        Team t1 = new Team(input);
+        System.out.println("Give me the second team");
+        input = in.nextLine();
+        Team t2 = new Team(input);
+        System.out.println("Give me the third team");
+        input = in.nextLine();
+        Team t3 = new Team(input);
+        System.out.println("Give me the fourth team");
+        input = in.nextLine();
+        Team t4 = new Team(input);
         
+        Calendar schedule = new Calendar();
+        schedule.games.add(new Game(t2.name, t1.name, 0, 0));
+        schedule.games.add(new Game(t3.name, t4.name, 0, 0));
+        schedule.games.add(new Game(t4.name, t2.name, 0, 0));
+        schedule.games.add(new Game(t4.name, t1.name, 0, 0));
+        schedule.games.add(new Game(t3.name, t1.name, 0, 0));
+        schedule.games.add(new Game(t4.name, t2.name, 0, 0));
+        schedule.games.add(new Game(t3.name, t2.name, 0, 0));
     }
     
     public static void updateScore(){
     
     }
 }
+
+//        if (t1score > t2score){
+//            System.out.println("Team 1 wins");
+//        }else{
+//            if (t1score < t2score)
+//                System.out.println("Team 2 wins");
+//        }
+//         if (t3score > t4score){
+//            System.out.println("Team 1 wins");
+//        }else{
+//            if (t3score < t4score)
+//                System.out.println("Team 2 wins");
+//    }
